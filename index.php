@@ -1,12 +1,12 @@
 <?php
 
-
-/** @var mysqli $db */
-require_once 'includes/dbconnect.php';
-
-//code
-
-mysqli_close($db);
+//
+///** @var mysqli $db */
+//require_once 'includes/dbconnect.php';
+//
+////code
+//
+//mysqli_close($db);
 ?>
 
 <!doctype html>
@@ -59,7 +59,6 @@ mysqli_close($db);
                         <option value="Blaak">Blaak</option>
                         <option value="Hoek-van-Holland">Hoek van Holland</option>
                     </select>
-                    <input type="text" name="beginbestemming" placeholder="Voer begin bestemming in" required>
                 </div>
           
                 <div>
