@@ -1,4 +1,12 @@
 <?php
+
+
+/** @var mysqli $db */
+require_once 'includes/dbconnect.php';
+
+//code
+
+mysqli_close($db);
 ?>
 
 <!doctype html>
@@ -18,7 +26,7 @@
     </div>
     <div id="nav-link">
         <div>
-            <a href="home.php">Home</a>
+            <a href="index.php">Home</a>
         </div>
         <div>
             <a href="comment.php">Melding maken</a>
@@ -30,7 +38,9 @@
     <section>
         <div id="locaties" class="lofa">
             <h2>Locaties:</h2>
+          
             <form action="" method="post">
+              
                 <div class="form-flex">
                     <label for="beginbestemming" id="beginbestemming" ><b>Van:</b></label><br>
                     <select name="beginbestemming" id="dropdown">
@@ -49,20 +59,25 @@
                         <option value="Blaak">Blaak</option>
                         <option value="Hoek-van-Holland">Hoek van Holland</option>
                     </select>
+                    <input type="text" name="beginbestemming" placeholder="Voer begin bestemming in" required>
                 </div>
+          
                 <div>
                     <input type="submit" value="Bekijk faciliteiten">
                 </div>
             </form>
         </div>
+  
         <div id="faciliteiten" class="lofa">
             <h2>Faciliteiten:</h2>
+          
             <div>
                 <h3>Beginbestemming:</h3>
                 <ul id="ul-begin">
                     <li>mhm</li>
                 </ul>
             </div>
+          
             <div>
                 <h3>Eindbestemming:</h3>
                 <ul id="ul-eind">
