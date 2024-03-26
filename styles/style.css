@@ -42,7 +42,7 @@ nav a:hover{
 section{
     display:flex;
     justify-content: center;
-    gap:10vw;
+    gap:6vw;
     flex:1 0 0;
 }
 
@@ -50,7 +50,7 @@ section{
     margin-top: 7vh;
     padding: 0 3vh;
     border: solid 1px;
-    width: 35vw;
+    width: 40vw;
     height: 60vh;
 }
 
@@ -59,22 +59,27 @@ section{
 }
 
 .lofa{
-    background-color: #beefbe;
+    background-color: #abc4b0;
 }
 
-input[type=text]{
+input[select]{
     border-radius:7px;
-    padding: 2vh 0 2vh 1vw;
-    width: 80%;
+    padding: 2.5vh 0 2.5vh 1vw;
+    width: 100%;
     margin: 2vh 0 3vh 0;
 }
 
 input[type=submit]{
-    background-color: mediumpurple;
-    padding: 2vh 0 2vh 0;
-    border-radius: 25px;
-    width:80%;
+    background-color: #be9fd1;
+    padding: 2.5vh 0 2.5vh 0;
+    border-radius: 7px;
+    width:100%;
     font-size: 1rem;
+    margin-top:2vh;
+}
+
+#beginbestemming, #eindbestemming{
+    font-size:1.2rem;
 }
 
 /*COMMENT SHIT*/
