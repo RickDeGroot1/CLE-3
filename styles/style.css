@@ -72,7 +72,32 @@ input[type=text]{
 input[type=submit]{
     background-color: mediumpurple;
     padding: 2vh 0 2vh 0;
-    border-radius: 7px;
+    border-radius: 25px;
     width:80%;
     font-size: 1rem;
+}
+
+/*COMMENT SHIT*/
+#comment-form {
+    margin: 0 20%;
+    /*text-align: center;*/
+}
+
+.comment-section {
+    margin: 5vh 0;
+}
+
+.comment-label {
+    font-size: 1.1rem;
+}
+
+#dropdown {
+    width: 100%;
+    height: 5vh;
+    border-radius: 25px;
+    margin-top: 1vh;
+}
+
+#comment-submit {
+    width: 100%;
 }

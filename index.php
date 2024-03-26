@@ -18,7 +18,7 @@
     </div>
     <div id="nav-link">
         <div>
-            <a href="home.php">Home</a>
+            <a href="index.php">Home</a>
         </div>
         <div>
             <a href="comment.php">Melding maken</a>
