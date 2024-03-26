@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #e1eae3;
+}
+
+h1{
+    font-size:2rem;
+}
+
+nav{
+    background-color: #324938;
+    color:white;
+    margin:0;
+    padding:0 5vw;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+}
+
+#nav-link{
+    gap:4vw;
+    display: flex;
+}
+
+nav a{
+    color: white;
+    padding: 3vh 1vw;
+    border-radius: 15px;
+    transition: ease-in 0.3s;
+    font-size:1.2rem;
+}
+
+nav a:hover{
+    color:black;
+    background-color: lightgray;
+}
+
+section{
+    display:flex;
+    justify-content: center;
+    gap:10vw;
+    flex:1 0 0;
+}
+
+#locaties, #faciliteiten{
+    margin-top: 7vh;
+    padding: 0 3vh;
+    border: solid 1px;
+    width: 35vw;
+    height: 60vh;
+}
+
+#locaties{
+
+}
+
+.lofa{
+    background-color: #beefbe;
+}
+
+input[type=text]{
+    border-radius:7px;
+    padding: 2vh 0 2vh 1vw;
+    width: 80%;
+    margin: 2vh 0 3vh 0;
+}
+
+input[type=submit]{
+    background-color: mediumpurple;
+    padding: 2vh 0 2vh 0;
+    border-radius: 25px;
+    width:80%;
+    font-size: 1rem;
+}
+
+/*COMMENT SHIT*/
+#comment-form {
+    margin: 0 20%;
+    /*text-align: center;*/
+}
+
+.comment-section {
+    margin: 5vh 0;
+}
+
+.comment-label {
+    font-size: 1.1rem;
+}
+
+#dropdown {
+    width: 100%;
+    height: 5vh;
+    border-radius: 25px;
+    margin-top: 1vh;
+}
+
+#comment-submit {
+    width: 100%;
+}
