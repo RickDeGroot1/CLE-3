@@ -1,4 +1,12 @@
 <?php
+
+
+/** @var mysqli $db */
+require_once 'includes/dbconnect.php';
+
+//code
+
+mysqli_close($db);
 ?>
 
 <!doctype html>
