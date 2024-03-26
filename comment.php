@@ -35,7 +35,7 @@
         <div class="comment-section">
             <label for="station" class="comment-label">Over welk station wilt u een melding maken?</label>
             <br>
-            <select name="station" id="dropdown">
+            <select name="station" id="dropdown" required>
                 <option value="">Kies een station</option>
                 <option value="Beurs">Beurs</option>
                 <option value="Blaak">Blaak</option>

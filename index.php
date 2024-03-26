@@ -43,7 +43,7 @@
               
                 <div class="form-flex">
                     <label for="beginbestemming" id="beginbestemming" ><b>Van:</b></label><br>
-                    <select name="beginbestemming" id="dropdown">
+                    <select name="beginbestemming" id="dropdown" required>
                         <option value="" selected disabled>Kies een station</option>
                         <option value="Beurs">Beurs</option>
                         <option value="Blaak">Blaak</option>
@@ -53,7 +53,7 @@
 
                 <div class="form-flex">
                     <label for="eindbestemming" id="eindbestemming"><b>Naar:</b></label><br>
-                    <select name="eindbestemming" id="dropdown">
+                    <select name="eindbestemming" id="dropdown" required>
                         <option value="" selected disabled>Kies een station</option>
                         <option value="Beurs">Beurs</option>
                         <option value="Blaak">Blaak</option>
