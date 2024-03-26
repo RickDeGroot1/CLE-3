@@ -64,15 +64,15 @@ section{
 
 input[type=text]{
     border-radius:7px;
-    padding: 2vh 0 2vh 1vw;
-    width: 80%;
+    padding: 2.5vh 0 2.5vh 1vw;
+    width: 100%;
     margin: 2vh 0 3vh 0;
 }
 
 input[type=submit]{
     background-color: mediumpurple;
-    padding: 2vh 0 2vh 0;
+    padding: 2.5vh 0 2.5vh 0;
     border-radius: 7px;
-    width:80%;
+    width:100%;
     font-size: 1rem;
 }
