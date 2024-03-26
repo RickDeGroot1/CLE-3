@@ -33,11 +33,22 @@
             <form action="" method="post">
                 <div class="form-flex">
                     <label for="beginbestemming" id="beginbestemming" ><b>Van:</b></label><br>
-                    <input type="text" name="beginbestemming" placeholder="Voer begin bestemming in" required>
+                    <select name="beginbestemming" id="dropdown">
+                        <option value="" selected disabled>Kies een station</option>
+                        <option value="Beurs">Beurs</option>
+                        <option value="Blaak">Blaak</option>
+                        <option value="Hoek-van-Holland">Hoek van Holland</option>
+                    </select>
                 </div>
+
                 <div class="form-flex">
                     <label for="eindbestemming" id="eindbestemming"><b>Naar:</b></label><br>
-                    <input type="text" required placeholder="Voer eindbestemming in">
+                    <select name="eindbestemming" id="dropdown">
+                        <option value="" selected disabled>Kies een station</option>
+                        <option value="Beurs">Beurs</option>
+                        <option value="Blaak">Blaak</option>
+                        <option value="Hoek-van-Holland">Hoek van Holland</option>
+                    </select>
                 </div>
                 <div>
                     <input type="submit" value="Bekijk faciliteiten">
@@ -46,6 +57,18 @@
         </div>
         <div id="faciliteiten" class="lofa">
             <h2>Faciliteiten:</h2>
+            <div>
+                <h3>Beginbestemming:</h3>
+                <ul id="ul-begin">
+                    <li>mhm</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Eindbestemming:</h3>
+                <ul id="ul-eind">
+                    <li>ja</li>
+                </ul>
+            </div>
         </div>
     </section>
 </header>
