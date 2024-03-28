@@ -18,21 +18,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/admin.css">
-    <title>Reiswijs</title>
+    <title>Admin home</title>
 </head>
 <body>
-<nav>
-    <div>
-        <img src="images/logo.PNG" alt="logo" id="logo-image">
-    </div>
-    <div id="nav-link">
-        <div>
-            <a href="index.php">Uitloggen</a>
-        </div>
-    </div>
-</nav>
-
 <header>
+    <nav>
+        <div>
+            <img src="images/logo.PNG" alt="logo" id="logo-image">
+        </div>
+        <div id="nav-link">
+            <div>
+                <a href="index.php">Uitloggen</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
     <section id="home-overview">
         <div class="overview-block">
 
@@ -52,12 +54,13 @@
 
             <p>Hier komen de laatste comments</p>
 
-            <a href="admin-stations.php">
+            <a href="admin-comments.php">
                 <button class="admin-button">Meer comments</button>
             </a>
 
         </div>
     </section>
-</header>
+</main>
+
 </body>
 </html>

@@ -20,21 +20,24 @@
     <title>Reiswijs</title>
 </head>
 <body>
-<nav>
-    <div>
-        <img src="images/logo.PNG" alt="logo" id="logo-image">
-    </div>
-    <div id="nav-link">
-        <div>
-            <a href="index.php">Home</a>
-        </div>
-        <div>
-            <a href="comment.php">Melding maken</a>
-        </div>
-    </div>
-</nav>
-
 <header>
+    <nav>
+        <div>
+            <img src="images/logo.PNG" alt="logo" id="logo-image">
+        </div>
+        <div id="nav-link">
+            <div>
+                <a href="index.php">Home</a>
+            </div>
+            <div>
+                <a href="comment.php">Melding maken</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<main>
     <section id="home-overview">
         <div class="overview-block">
             <h2>Locaties:</h2>
@@ -85,6 +88,7 @@
             </div>
         </div>
     </section>
-</header>
+</main>
+
 </body>
 </html>

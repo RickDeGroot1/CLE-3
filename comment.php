@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/comment.css">
-    <title>Reiswijs</title>
+    <title>Reiswijs comments</title>
 </head>
 <body>
 <header>
@@ -28,8 +28,8 @@
         </div>
     </nav>
 </header>
-<main>
 
+<main>
     <form id="comment-form">
         <h1>Maak een melding</h1>
 
@@ -72,5 +72,6 @@
 
     </form>
 </main>
+
 </body>
 </html>
