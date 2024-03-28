@@ -1,14 +1,29 @@
 <?php
-/** @var mysqli $db */
+
 require_once 'includes/dbconnect.php';
+/** @var mysqli $db */
 
-// Code for processing the form goes here
 
-// Query to fetch all station options
+// Als het formulier is gesubmit
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $station_id = $_POST['dropdown'];
+    $comment = isset($_POST['comment']) ? $_POST['comment'] : '';
+    $lift = isset($_POST['lift']) ? $_POST['lift'] : '';
+    $escalator = isset($_POST['escalator']) ? $_POST['escalator'] : '';
+
+    // Voeg de comment toe aan de database
+    $sql = "INSERT INTO comments (station_id, comment, lift, escalator) VALUES ('$station_id', '$comment', '$lift', '$escalator')";
+    if ($db->query($sql) === TRUE) {
+        echo "Comment is succesvol toegevoegd";
+    } else {
+        echo "Error: " . $sql . "<br>" . $db->error;
+    }
+}
+
+// Alle stationopties op te halen
 $sql = "SELECT * FROM stations";
 $result = $db->query($sql);
 
-// Close the database connection
 mysqli_close($db);
 ?>
 
@@ -20,14 +35,16 @@ mysqli_close($db);
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Comment add</title>
+    <script src="js/comment.js"></script>
 </head>
 <body>
 
-<form action="process_form.php" method="post">
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
     <label for="dropdown">Station:</label>
     <select name="dropdown" id="dropdown">
         <option value="">Selecteer een station</option>
         <?php
+        // Zorg ervoor dat alle stations in de dropdown menu verschijnen en onthoud id
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 echo "<option value='".$row["id"]."'>".$row["station"]."</option>";
@@ -37,34 +54,11 @@ mysqli_close($db);
     </select>
     <br><br>
 
-    <?php
-    // Query to get the number of lifts and escalators for the selected station
-    if (isset($_POST['dropdown']) && !empty($_POST['dropdown'])) {
-        $station_id = $_POST['dropdown'];
-        $sql = "SELECT lift, escalator FROM stations WHERE id = $station_id";
-        $result = $db->query($sql);
+    <!-- Hier komen de radio buttons voor de lift -->
+    <div id="lift_radios"></div>
 
-        if ($result && $result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $lift_count = $row['lift'];
-            $escalator_count = $row['escalator'];
-
-            // Generate checkboxes for lifts
-            echo "<label for='lift'>Lift:</label>";
-            for ($i = 1; $i <= $lift_count; $i++) {
-                echo "<input type='checkbox' id='lift$i' name='lift[]' value='$i'><label for='lift$i'>$i</label> ";
-            }
-            echo "<br><br>";
-
-            // Generate checkboxes for escalators
-            echo "<label for='escalator'>Roltrap:</label>";
-            for ($i = 1; $i <= $escalator_count; $i++) {
-                echo "<input type='checkbox' id='escalator$i' name='escalator[]' value='$i'><label for='escalator$i'>$i</label> ";
-            }
-            echo "<br><br>";
-        }
-    }
-    ?>
+    <!-- Hier komen de radio buttons voor de roltrap -->
+    <div id="escalator_radios"></div>
 
     <label for="comment">Commentaar:</label>
     <input type="text" id="comment" name="comment"><br><br>
