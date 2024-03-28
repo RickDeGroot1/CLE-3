@@ -22,7 +22,7 @@
 <body>
 <nav>
     <div>
-        <h1>Reiswijs</h1>
+        <img src="images/logo.PNG" alt="logo" id="logo-image">
     </div>
     <div id="nav-link">
         <div>
@@ -35,8 +35,8 @@
 </nav>
 
 <header>
-    <section>
-        <div id="locaties" class="lofa">
+    <section id="home-overview">
+        <div class="overview-block">
             <h2>Locaties:</h2>
           
             <form action="" method="post">
@@ -62,12 +62,12 @@
                 </div>
           
                 <div>
-                    <input type="submit" value="Bekijk faciliteiten">
+                    <input id="route-submit" type="submit" value="Bekijk faciliteiten">
                 </div>
             </form>
         </div>
   
-        <div id="faciliteiten" class="lofa">
+        <div class="overview-block">
             <h2>Faciliteiten:</h2>
           
             <div>

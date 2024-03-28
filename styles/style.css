@@ -10,6 +10,7 @@ h1{
     font-size:2rem;
 }
 
+/*NAVIGATIE*/
 nav{
     background-color: #324938;
     color:white;
@@ -38,30 +39,33 @@ nav a:hover{
     background-color: lightgray;
 }
 
-section{
+#logo-image {
+    width: 125px;
+    padding: 5px
+}
+
+/*HOME OVERVIEWS*/
+#home-overview {
     display:flex;
     justify-content: center;
     gap:6vw;
     flex:1 0 0;
 }
 
-#locaties, #faciliteiten{
+.overview-block{
     margin-top: 7vh;
     padding: 0 3vh;
-    border: solid 1px;
+    border: 2px solid #324938;
     width: 40vw;
     height: 60vh;
+    background-color: #abc4b0;
 }
 
 .form-flex {
     margin: 3vh 0;
 }
 
-.lofa{
-    background-color: #abc4b0;
-}
-
-input[type=submit]{
+#route-submit{
     background-color: #be9fd1;
     padding: 2.5vh 0 2.5vh 0;
     border-radius: 25px;
@@ -74,10 +78,9 @@ input[type=submit]{
     font-size:1.2rem;
 }
 
-/*COMMENT SHIT*/
+/*COMMENT PAGINA*/
 #comment-form {
     margin: 0 20%;
-    /*text-align: center;*/
 }
 
 .comment-section {

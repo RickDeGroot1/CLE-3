@@ -15,7 +15,7 @@
 <header>
     <nav>
         <div>
-            <h1>Reiswijs</h1>
+            <img src="images/logo.PNG" alt="logo" id="logo-image">
         </div>
         <div id="nav-link">
             <div>
