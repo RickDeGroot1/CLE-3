@@ -1,13 +1,59 @@
 <?php
+/** @var mysqli $db */
+require_once 'includes/dbconnect.php';
 
-//
-///** @var mysqli $db */
-//require_once 'includes/dbconnect.php';
-//
-////code
-//
-//mysqli_close($db);
+//code
+$query = "SELECT * FROM stations";
+
+$result = mysqli_query($db, $query)
+or die('Error '.mysqli_error($db).' with query '.$query);
+
+$stations = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+
+
+$startStation = '';
+$targetStation = '';
+
+$errors = [];
+
+if (empty($_POST['beginbestemming'])) {
+    $errors['noStation'] = 'Selecteer beide een startstation en een eindstation';
+}
+
+if (empty($_POST['eindbestemming'])) {
+    $errors['noStation'] = 'Selecteer beide een startstation en een eindstation';
+}
+
+if (isset($_POST['submit'])) {
+    if (!empty($_POST['beginbestemming']) && !empty($_POST['eindbestemming'])) {
+        $startStationId = $_POST['beginbestemming'];
+        $targetStationId = $_POST['eindbestemming'];
+
+        if (empty($errors)) {
+            if ($targetStationId !== $startStationId) {
+                foreach ($stations as $station) {
+                    if ($station['id'] == $startStationId) {
+                        $startStation = $station['station'];
+                        $startStationLifts = $station['lift'];
+                        $startStationEscalators = $station['escalator'];
+                    }
+                    if ($station['id'] == $targetStationId) {
+                        $targetStation = $station['station'];
+                        $targetStationLifts = $station['lift'];
+                        $targetStationEscalators = $station['escalator'];
+                    }
+                }
+            } else {
+                $errors['sameStation'] = 'Kies twee verschillende stations';
+            }
+        }
+    }
+}
+
+mysqli_close($db);
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -38,51 +84,57 @@
     <section>
         <div id="locaties" class="lofa">
             <h2>Locaties:</h2>
-          
-            <form action="" method="post">
-              
-                <div class="form-flex">
-                    <label for="beginbestemming" id="beginbestemming" ><b>Van:</b></label><br>
-                    <select name="beginbestemming" id="dropdown">
-                        <option value="" selected disabled>Kies een station</option>
-                        <option value="Beurs">Beurs</option>
-                        <option value="Blaak">Blaak</option>
-                        <option value="Hoek-van-Holland">Hoek van Holland</option>
-                    </select>
-                </div>
 
+            <form action="" method="post">
                 <div class="form-flex">
-                    <label for="eindbestemming" id="eindbestemming"><b>Naar:</b></label><br>
-                    <select name="eindbestemming" id="dropdown">
+                    <label for="beginbestemming"><b>Van:</b></label><br>
+                    <select name="beginbestemming" id="beginbestemming" class="dropdown">
                         <option value="" selected disabled>Kies een station</option>
-                        <option value="Beurs">Beurs</option>
-                        <option value="Blaak">Blaak</option>
-                        <option value="Hoek-van-Holland">Hoek van Holland</option>
+                        <?php foreach($stations as $station): ?>
+                            <option value="<?php echo $station['id']?>">
+                                <?php echo $station['station']?>
+                            </option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
-          
+                <div class="form-flex">
+                    <label for="eindbestemming"><b>Naar:</b></label><br>
+                    <select name="eindbestemming" id="eindbestemming" class="dropdown">
+                        <option value="" selected disabled>Kies een station</option>
+                        <?php foreach($stations as $station): ?>
+                            <option value="<?php echo $station['id']?>">
+                                <?php echo $station['station']?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
                 <div>
-                    <input type="submit" value="Bekijk faciliteiten">
+                    <input type="submit" name="submit" value="Bekijk faciliteiten">
                 </div>
             </form>
         </div>
   
         <div id="faciliteiten" class="lofa">
             <h2>Faciliteiten:</h2>
-          
+            <?php if($startStation !== '' && $targetStation !== ''): ?>
             <div>
-                <h3>Beginbestemming:</h3>
+                <h3>Beginbestemming: <?= $startStation ?? '' ?></h3>
                 <ul id="ul-begin">
-                    <li>mhm</li>
+                    <li>Aantal liften: <?= $startStationLifts ?? '' ?></li>
+                    <li>Aantal roltrappen: <?= $startStationEscalators ?? '' ?></li>
                 </ul>
             </div>
-          
             <div>
-                <h3>Eindbestemming:</h3>
+                <h3>Eindbestemming: <?= $targetStation ?? '' ?></h3>
                 <ul id="ul-eind">
-                    <li>ja</li>
+                    <li>Aantal liften: <?= $targetStationLifts ?? '' ?>
+                    <li>Aantal roltrappen: <?= $targetStationLifts ?? '' ?></li>
                 </ul>
             </div>
+            <?php else: ?>
+                <?= $errors['sameStation'] ?? ''?>
+                <?= $errors['noStation'] ?? '' ?>
+            <?php endif ?>
         </div>
     </section>
 </header>
