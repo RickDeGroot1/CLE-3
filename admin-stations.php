@@ -1,12 +1,20 @@
 <?php
 
-//
-///** @var mysqli $db */
-//require_once 'includes/dbconnect.php';
-//
-////code
-//
-//mysqli_close($db);
+/** @var mysqli $db */
+require_once 'includes/dbconnect.php';
+
+$query = 'SELECT * FROM stations';
+
+$result = mysqli_query($db, $query)
+or die ('Error '.mysqli_error($db).' with query '.$query);
+
+$stations = [];
+
+while ($row = mysqli_fetch_assoc($result)) {
+    $stations[] = $row;
+}
+
+mysqli_close($db);
 ?>
 
 <!doctype html>
@@ -31,7 +39,7 @@
                 <a href="admin-home.php">Home</a>
             </div>
             <div>
-                <a href="index.php">Uitloggen</a>
+                <a href="logout.php">Uitloggen</a>
             </div>
         </div>
     </nav>
@@ -39,6 +47,30 @@
 
 <main>
     <h2>Stations</h2>
+    <a href="add-station.php">Voeg nieuwe station toe</a>
+    <table>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Station</th>
+            <th>Lift</th>
+            <th>Escalator</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($stations as $index => $station) { ?>
+            <tr>
+                <td><?= $index + 1 ?></td>
+                <td><?= $station['station'] ?></td>
+                <td><?= $station['lift'] ?></td>
+                <td><?= $station['escalator'] ?></td>
+                <td>
+                    <a href="stations-delete.php?id=<?= $station['id']; ?>">delete</a>
+                </td>
+            </tr>
+        <?php } ?>
+        </tbody>
+    </table>
 </main>
 </body>
 </html>
