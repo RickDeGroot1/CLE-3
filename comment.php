@@ -3,6 +3,7 @@
 require_once 'includes/dbconnect.php';
 /** @var mysqli $db */
 
+$station_id = $comment = $lift = $escalator = '';
 
 // Als het formulier is gesubmit
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -68,7 +69,11 @@ mysqli_close($db);
                 // Zorg ervoor dat alle stations in de dropdown menu verschijnen en onthoud id
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
-                        echo "<option value='".$row["id"]."'>".$row["station"]."</option>";
+                        echo "<option value='".$row["id"]."'";
+                        if ($row["id"] == $station_id) {
+                            echo " selected";
+                        }
+                        echo ">".$row["station"]."</option>";
                     }
                 }
                 ?>
@@ -76,17 +81,16 @@ mysqli_close($db);
         </div>
 
         <div class="comment-section" id="lift_radios">
-            <p class="comment-label" ">Hoeveel liften werken niet?</p>
+            <p class="comment-label">Hoeveel liften werken niet?</p>
         </div>
 
-
         <div class="comment-section" id="escalator_radios">
-            <p class="comment-label" ">Hoeveel roltrappen werken niet?</p>
+            <p class="comment-label">Hoeveel roltrappen werken niet?</p>
         </div>
 
         <div class="comment-section">
             <label for="comment" class="comment-label">Zijn er nog andere bijzonderheden?</label></p>
-            <textarea name="comment" rows="4" cols="50"></textarea>
+            <textarea name="comment" rows="4" cols="50"><?php echo $comment; ?></textarea>
         </div>
 
         <div class="comment-section">

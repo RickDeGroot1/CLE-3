@@ -98,3 +98,7 @@ input[type=submit]{
 #comment-submit {
     width: 100%;
 }
+
+.error {
+    color: red;
+}
