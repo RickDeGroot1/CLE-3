@@ -34,37 +34,66 @@ mysqli_close($db);
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Comment add</title>
+    <link rel="stylesheet" href="styles/style.css">
     <script src="js/comment.js"></script>
+    <title>Reiswijs</title>
 </head>
 <body>
+<header>
+    <nav>
+        <div>
+            <h1>Reiswijs</h1>
+        </div>
+        <div id="nav-link">
+            <div>
+                <a href="index.php">Home</a>
+            </div>
+            <div>
+                <a href="comment.php">Melding maken</a>
+            </div>
+        </div>
+    </nav>
+</header>
+<main>
 
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-    <label for="dropdown">Station:</label>
-    <select name="dropdown" id="dropdown">
-        <option value="">Selecteer een station</option>
-        <?php
-        // Zorg ervoor dat alle stations in de dropdown menu verschijnen en onthoud id
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                echo "<option value='".$row["id"]."'>".$row["station"]."</option>";
-            }
-        }
-        ?>
-    </select>
-    <br><br>
+    <form id="comment-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <h1>Maak een melding</h1>
 
-    <!-- Hier komen de radio buttons voor de lift -->
-    <div id="lift_radios"></div>
+        <div class="comment-section">
+            <label for="station" class="comment-label">Over welk station wilt u een melding maken?</label>
+            <br>
+            <select name="dropdown" id="dropdown">
+                <option value="">Selecteer een station</option>
+                <?php
+                // Zorg ervoor dat alle stations in de dropdown menu verschijnen en onthoud id
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo "<option value='".$row["id"]."'>".$row["station"]."</option>";
+                    }
+                }
+                ?>
+            </select>
+        </div>
 
-    <!-- Hier komen de radio buttons voor de roltrap -->
-    <div id="escalator_radios"></div>
+        <div class="comment-section" id="lift_radios">
+            <p class="comment-label" ">Hoeveel liften werken niet?</p>
+        </div>
 
-    <label for="comment">Commentaar:</label>
-    <input type="text" id="comment" name="comment"><br><br>
 
-    <input type="submit" value="Verzenden">
-</form>
+        <div class="comment-section" id="escalator_radios">
+            <p class="comment-label" ">Hoeveel roltrappen werken niet?</p>
+        </div>
 
+        <div class="comment-section">
+            <label for="comment" class="comment-label">Zijn er nog andere bijzonderheden?</label></p>
+            <textarea name="comment" rows="4" cols="50"></textarea>
+        </div>
+
+        <div class="comment-section">
+            <input id="comment-submit" type="submit" value="Verstuur melding">
+        </div>
+
+    </form>
+</main>
 </body>
 </html>

@@ -34,10 +34,13 @@ function getLiftsAndEscalators() {
 
 
 function displayRadios(data) {
-
+    var liftRadios = document.getElementById('lift_radios');
+    liftRadios.innerHTML = '';
     var liftLabel = document.createElement('label');
-    liftLabel.textContent = 'Lift:';
+    liftLabel.textContent = 'Hoeveel liften werken niet?';
     liftRadios.appendChild(liftLabel);
+    liftRadios.appendChild(document.createElement('br')); // Voeg een <br> toe
+
     // Maak radiobuttons voor elke lift in de ontvangen data
     for (var i = 1; i <= data.lifts; i++) {
         var radio = document.createElement('input');
@@ -45,20 +48,24 @@ function displayRadios(data) {
         radio.id = 'lift' + i;
         radio.name = 'lift';
         radio.value = i;
+        radio.className = 'comment-checkbox'; // Add class for styling
         var label = document.createElement('label');
         //voor gebruiksvriendelijkheid, koppelt label met radiobuttons
         label.htmlFor = 'lift' + i;
-        label.innerHTML = 'Lift ' + i;
+        label.innerHTML = i; // nummer is de label
+        label.className = 'comment-label'; // voor styling
 
         liftRadios.appendChild(radio);
         liftRadios.appendChild(label);
-        liftRadios.appendChild(document.createElement('br'));
+        liftRadios.appendChild(document.createElement('br')); // Voeg een <br> toe
     }
 
+    var escalatorRadios = document.getElementById('escalator_radios');
+    escalatorRadios.innerHTML = ''; // Clear previous content
     var escalatorLabel = document.createElement('label');
-    escalatorLabel.textContent = 'Roltrappen:';
+    escalatorLabel.textContent = 'Hoeveel roltrappen werken niet?';
     escalatorRadios.appendChild(escalatorLabel);
-
+    escalatorRadios.appendChild(document.createElement('br')); // Voeg een <br> toe
     // Maak radiobuttons voor elke roltrap in de ontvangen data
     for (var j = 1; j <= data.escalators; j++) {
         var radio = document.createElement('input');
@@ -66,13 +73,15 @@ function displayRadios(data) {
         radio.id = 'escalator' + j;
         radio.name = 'escalator';
         radio.value = j;
+        radio.className = 'comment-checkbox'; // Add class for styling
         var label = document.createElement('label');
         //voor gebruiksvriendelijkheid, koppelt label met radiobuttons
         label.htmlFor = 'escalator' + j;
-        label.innerHTML = 'Escalator ' + j;
+        label.innerHTML = j; // Display the number as label
+        label.className = 'comment-label'; // Add class for styling
 
         escalatorRadios.appendChild(radio);
         escalatorRadios.appendChild(label);
-        escalatorRadios.appendChild(document.createElement('br'));
+        escalatorRadios.appendChild(document.createElement('br')); // Voeg een <br> toe
     }
 }
