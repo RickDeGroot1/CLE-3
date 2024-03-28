@@ -62,7 +62,7 @@
                 </div>
           
                 <div>
-                    <input id="route-submit" type="submit" value="Bekijk faciliteiten">
+                    <input id="form-submit" type="submit" value="Bekijk faciliteiten">
                 </div>
             </form>
         </div>

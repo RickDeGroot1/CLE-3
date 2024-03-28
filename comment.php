@@ -9,6 +9,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/comment.css">
     <title>Reiswijs</title>
 </head>
 <body>
@@ -66,7 +67,7 @@
         </div>
 
         <div class="comment-section">
-            <input id="comment-submit" type="submit" value="Verstuur melding">
+            <input id="form-submit" type="submit" value="Verstuur melding">
         </div>
 
     </form>
