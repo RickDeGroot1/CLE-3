@@ -1,4 +1,30 @@
 <?php
+
+require_once 'includes/dbconnect.php';
+/** @var mysqli $db */
+
+
+// Als het formulier is gesubmit
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $station_id = $_POST['dropdown'];
+    $comment = isset($_POST['comment']) ? $_POST['comment'] : '';
+    $lift = isset($_POST['lift']) ? $_POST['lift'] : '';
+    $escalator = isset($_POST['escalator']) ? $_POST['escalator'] : '';
+
+    // Voeg de comment toe aan de database
+    $sql = "INSERT INTO comments (station_id, comment, lift, escalator) VALUES ('$station_id', '$comment', '$lift', '$escalator')";
+    if ($db->query($sql) === TRUE) {
+        echo "Comment is succesvol toegevoegd";
+    } else {
+        echo "Error: " . $sql . "<br>" . $db->error;
+    }
+}
+
+// Alle stationopties op te halen
+$sql = "SELECT * FROM stations";
+$result = $db->query($sql);
+
+mysqli_close($db);
 ?>
 
 <!doctype html>
@@ -9,13 +35,15 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/style.css">
-    <title>Reiswijs</title>
+    <link rel="stylesheet" href="styles/comment.css">
+    <script src="js/comment.js"></script>
+    <title>Reiswijs comments</title>
 </head>
 <body>
 <header>
     <nav>
         <div>
-            <h1>Reiswijs</h1>
+            <img src="images/logo.PNG" alt="logo" id="logo-image">
         </div>
         <div id="nav-link">
             <div>
@@ -27,49 +55,47 @@
         </div>
     </nav>
 </header>
-<main>
 
-    <form id="comment-form">
+<main>
+    <form id="comment-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <h1>Maak een melding</h1>
 
         <div class="comment-section">
             <label for="station" class="comment-label">Over welk station wilt u een melding maken?</label>
             <br>
-            <select name="station" id="dropdown" required>
-                <option value="">Kies een station</option>
-                <option value="Beurs">Beurs</option>
-                <option value="Blaak">Blaak</option>
-                <option value="Hoek-van-Holland">Hoek van Holland</option>
+            <select name="dropdown" id="dropdown">
+                <option value="">Selecteer een station</option>
+                <?php
+                // Zorg ervoor dat alle stations in de dropdown menu verschijnen en onthoud id
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo "<option value='".$row["id"]."'>".$row["station"]."</option>";
+                    }
+                }
+                ?>
             </select>
         </div>
 
-        <div class="comment-section">
-            <p class="comment-label">Hoeveel liften werken niet?</p>
-            <label for="lift1" class="comment-label">1</label>
-            <input type="checkbox" id="lift1" name="lift1" value="1">
-            <label for="lift2" class="comment-label">2</label>
-            <input type="checkbox" id="lift2" name="lift2" value="2">
+        <div class="comment-section" id="lift_radios">
+            <p class="comment-label" ">Hoeveel liften werken niet?</p>
         </div>
 
 
-        <div class="comment-section">
-            <p class="comment-label">Hoeveel roltrappen werken niet?</p>
-            <label for="roltrap1" class="comment-label">1</label>
-            <input type="checkbox" id="roltrap1" name="roltrap1" value="1">
-            <label for="roltrap2" class="comment-label">2</label>
-            <input type="checkbox" id="roltrap2" name="roltrap2" value="2">
+        <div class="comment-section" id="escalator_radios">
+            <p class="comment-label" ">Hoeveel roltrappen werken niet?</p>
         </div>
 
         <div class="comment-section">
-            <label for="bijzonder" class="comment-label">Zijn er nog andere bijzonderheden?</label></p>
-            <textarea name="bijzonder" rows="4" cols="50"></textarea>
+            <label for="comment" class="comment-label">Zijn er nog andere bijzonderheden?</label></p>
+            <textarea name="comment" rows="4" cols="50"></textarea>
         </div>
 
         <div class="comment-section">
-            <input id="comment-submit" type="submit" value="Verstuur melding">
+            <input id="form-submit" type="submit" value="Verstuur melding">
         </div>
 
     </form>
 </main>
+
 </body>
 </html>
