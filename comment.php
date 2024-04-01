@@ -3,6 +3,7 @@
 require_once 'includes/dbconnect.php';
 /** @var mysqli $db */
 
+$station_id = $comment = $lift = $escalator = '';
 
 // Als het formulier is gesubmit
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -35,14 +36,15 @@ mysqli_close($db);
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/comment.css">
     <script src="js/comment.js"></script>
-    <title>Reiswijs</title>
+    <title>Reiswijs comments</title>
 </head>
 <body>
 <header>
     <nav>
         <div>
-            <h1>Reiswijs</h1>
+            <img src="images/logo.PNG" alt="logo" id="logo-image">
         </div>
         <div id="nav-link">
             <div>
@@ -54,8 +56,8 @@ mysqli_close($db);
         </div>
     </nav>
 </header>
-<main>
 
+<main>
     <form id="comment-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <h1>Maak een melding</h1>
 
@@ -68,7 +70,11 @@ mysqli_close($db);
                 // Zorg ervoor dat alle stations in de dropdown menu verschijnen en onthoud id
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
-                        echo "<option value='".$row["id"]."'>".$row["station"]."</option>";
+                        echo "<option value='".$row["id"]."'";
+                        if ($row["id"] == $station_id) {
+                            echo " selected";
+                        }
+                        echo ">".$row["station"]."</option>";
                     }
                 }
                 ?>
@@ -76,24 +82,24 @@ mysqli_close($db);
         </div>
 
         <div class="comment-section" id="lift_radios">
-            <p class="comment-label" ">Hoeveel liften werken niet?</p>
+            <p class="comment-label">Hoeveel liften werken niet?</p>
         </div>
 
-
         <div class="comment-section" id="escalator_radios">
-            <p class="comment-label" ">Hoeveel roltrappen werken niet?</p>
+            <p class="comment-label">Hoeveel roltrappen werken niet?</p>
         </div>
 
         <div class="comment-section">
             <label for="comment" class="comment-label">Zijn er nog andere bijzonderheden?</label></p>
-            <textarea name="comment" rows="4" cols="50"></textarea>
+            <textarea name="comment" rows="4" cols="50"><?php echo $comment; ?></textarea>
         </div>
 
         <div class="comment-section">
-            <input id="comment-submit" type="submit" value="Verstuur melding">
+            <input id="form-submit" type="submit" value="Verstuur melding">
         </div>
 
     </form>
 </main>
+
 </body>
 </html>
