@@ -100,4 +100,20 @@ nav a:hover{
 
 .comment-label {
     font-size: 1.1rem;
+
+}
+
+#dropdown {
+    width: 100%;
+    height: 5vh;
+    border-radius: 25px;
+    margin-top: 1vh;
+}
+
+#comment-submit {
+    width: 100%;
+}
+
+.error {
+    color: red;
 }
