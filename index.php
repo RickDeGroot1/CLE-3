@@ -131,7 +131,7 @@ mysqli_close($db);
                 <h3>Eindbestemming: <?= $targetStation ?? '' ?></h3>
                 <ul id="ul-eind">
                     <li>Aantal liften: <?= $targetStationLifts ?? '' ?>
-                    <li>Aantal roltrappen: <?= $targetStationLifts ?? '' ?></li>
+                    <li>Aantal roltrappen: <?= $targetStationEscalators ?? '' ?></li>
                 </ul>
             </div>
             <?php else: ?>
