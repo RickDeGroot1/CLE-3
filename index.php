@@ -100,12 +100,12 @@ mysqli_close($db);
                             <option value="<?php echo $startStationId?>" selected disabled><?php echo $startStation?></option>
                         <?php } else { ?>
                         <option value="" selected disabled>Kies een station</option>
+                        <?php } ?>
                         <?php foreach($stations as $station): ?>
                             <option value="<?php echo $station['id']?>">
                                 <?php echo $station['station']?>
                             </option>
                         <?php endforeach; ?>
-                        <?php } ?>
                     </select>
                 </div>
                 <div class="form-flex">
@@ -115,12 +115,12 @@ mysqli_close($db);
                             <option value="<?php echo $targetStationId?>" selected disabled><?php echo $targetStation?></option>
                         <?php } else { ?>
                             <option value="" selected disabled>Kies een station</option>
-                            <?php foreach($stations as $station): ?>
-                                <option value="<?php echo $station['id']?>">
-                                    <?php echo $station['station']?>
-                                </option>
-                            <?php endforeach; ?>
                         <?php } ?>
+                        <?php foreach($stations as $station): ?>
+                            <option value="<?php echo $station['id']?>">
+                                <?php echo $station['station']?>
+                            </option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
                 <div>
