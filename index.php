@@ -69,23 +69,26 @@ mysqli_close($db);
     <title>Reiswijs</title>
 </head>
 <body>
-<nav>
-    <div>
-        <h1>Reiswijs</h1>
-    </div>
-    <div id="nav-link">
-        <div>
-            <a href="index.php">Home</a>
-        </div>
-        <div>
-            <a href="comment.php">Melding maken</a>
-        </div>
-    </div>
-</nav>
-
 <header>
-    <section>
-        <div id="locaties" class="lofa">
+    <nav>
+        <div>
+            <img src="images/logo.PNG" alt="logo" id="logo-image">
+        </div>
+        <div id="nav-link">
+            <div>
+                <a href="index.php">Home</a>
+            </div>
+            <div>
+                <a href="comment.php">Melding maken</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<main>
+    <section id="home-overview">
+        <div class="overview-block">
             <h2>Locaties:</h2>
 
             <form action="" method="post">
@@ -117,7 +120,7 @@ mysqli_close($db);
             </form>
         </div>
   
-        <div id="faciliteiten" class="lofa">
+        <div class="overview-block">
             <h2>Faciliteiten:</h2>
             <?php if($startStation !== '' && $targetStation !== ''): ?>
             <div id="startStationDiv">
@@ -144,6 +147,7 @@ mysqli_close($db);
             <?php endif ?>
         </div>
     </section>
-</header>
+</main>
+
 </body>
 </html>

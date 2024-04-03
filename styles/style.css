@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
 }
 
 body {
@@ -10,6 +13,7 @@ h1{
     font-size:2rem;
 }
 
+/*NAVIGATIE*/
 nav{
     background-color: #324938;
     color:white;
@@ -38,21 +42,29 @@ nav a:hover{
     background-color: lightgray;
 }
 
-section{
+#logo-image {
+    width: 125px;
+    padding: 5px
+}
+
+/*HOME OVERVIEWS*/
+#home-overview {
     display:flex;
     justify-content: center;
     gap:6vw;
     flex:1 0 0;
 }
 
-#locaties, #faciliteiten{
+.overview-block{
     margin-top: 7vh;
     padding: 0 3vh;
-    border: solid 1px;
+    border: 2px solid #324938;
     width: 40vw;
-    height: 60vh;
+    min-height: 60vh;
+    background-color: #abc4b0;
 }
 
+/*HOME STATION FORM*/
 .form-flex {
     margin: 3vh 0;
 }
@@ -76,10 +88,16 @@ input[type=submit], #form-submit{
     font-size:1.2rem;
 }
 
-/*COMMENT SHIT*/
+#dropdown {
+    width: 100%;
+    height: 5vh;
+    border-radius: 25px;
+    margin-top: 1vh;
+}
+
+/*COMMENT PAGINA*/
 #comment-form {
     margin: 0 20%;
-    /*text-align: center;*/
 }
 
 .comment-section {
@@ -101,6 +119,10 @@ input[type=submit], #form-submit{
     width: 100%;
 }
 
+.error {
+    color: red;
+}
+
 .modal {
     border-radius: 10px;
     font-size: 1.2rem;
@@ -110,4 +132,3 @@ input[type=submit], #form-submit{
     display: flex;
     flex-direction: column;
 }
-

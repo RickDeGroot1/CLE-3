@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 26 mrt 2024 om 11:55
+-- Gegenereerd op: 27 mrt 2024 om 11:51
 -- Serverversie: 10.4.28-MariaDB
 -- PHP-versie: 8.2.4
 
@@ -28,7 +28,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `comments` (
-  `station_id` int(11) UNSIGNED NOT NULL,
+  `id` int(11) NOT NULL,
+  `station_id` int(10) UNSIGNED NOT NULL,
   `comment` varchar(255) DEFAULT NULL,
   `lift` int(10) UNSIGNED DEFAULT NULL,
   `escalator` int(10) UNSIGNED DEFAULT NULL
@@ -38,8 +39,8 @@ CREATE TABLE `comments` (
 -- Gegevens worden geëxporteerd voor tabel `comments`
 --
 
-INSERT INTO `comments` (`station_id`, `comment`, `lift`, `escalator`) VALUES
-(1, 'Een lift is stuk. Welke? geen idee', 1, NULL);
+INSERT INTO `comments` (`id`, `station_id`, `comment`, `lift`, `escalator`) VALUES
+(4, 1, 'Wow een lift is kapot gegaan. Ik zat er midden in en nu... nu is het kapot.', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -89,7 +90,8 @@ INSERT INTO `users` (`username`, `password`, `admin`) VALUES
 -- Indexen voor tabel `comments`
 --
 ALTER TABLE `comments`
-  ADD UNIQUE KEY `station_id` (`station_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `station_id` (`station_id`);
 
 --
 -- Indexen voor tabel `stations`
@@ -102,10 +104,16 @@ ALTER TABLE `stations`
 --
 
 --
+-- AUTO_INCREMENT voor een tabel `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT voor een tabel `stations`
 --
 ALTER TABLE `stations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Beperkingen voor geëxporteerde tabellen
@@ -115,7 +123,7 @@ ALTER TABLE `stations`
 -- Beperkingen voor tabel `comments`
 --
 ALTER TABLE `comments`
-  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`station_id`) REFERENCES `stations` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`station_id`) REFERENCES `stations` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
