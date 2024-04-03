@@ -88,27 +88,36 @@ mysqli_close($db);
         <div class="overview-block">
             <h2>Locaties:</h2>
 
+
             <form action="" method="post">
                 <div class="form-flex">
                     <label for="beginbestemming"><b>Van:</b></label><br>
                     <select name="beginbestemming" id="beginbestemming" class="dropdown">
+                        <?php if($startStation !== '') { ?>
+                            <option value="<?php echo $startStationId?>" selected disabled><?php echo $startStation?></option>
+                        <?php } else { ?>
                         <option value="" selected disabled>Kies een station</option>
                         <?php foreach($stations as $station): ?>
                             <option value="<?php echo $station['id']?>">
                                 <?php echo $station['station']?>
                             </option>
                         <?php endforeach; ?>
+                        <?php } ?>
                     </select>
                 </div>
                 <div class="form-flex">
                     <label for="eindbestemming"><b>Naar:</b></label><br>
                     <select name="eindbestemming" id="eindbestemming" class="dropdown">
-                        <option value="" selected disabled>Kies een station</option>
-                        <?php foreach($stations as $station): ?>
-                            <option value="<?php echo $station['id']?>">
-                                <?php echo $station['station']?>
-                            </option>
-                        <?php endforeach; ?>
+                        <?php if($targetStation !== '') { ?>
+                            <option value="<?php echo $targetStationId?>" selected disabled><?php echo $targetStation?></option>
+                        <?php } else { ?>
+                            <option value="" selected disabled>Kies een station</option>
+                            <?php foreach($stations as $station): ?>
+                                <option value="<?php echo $station['id']?>">
+                                    <?php echo $station['station']?>
+                                </option>
+                            <?php endforeach; ?>
+                        <?php } ?>
                     </select>
                 </div>
                 <div>
