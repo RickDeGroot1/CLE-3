@@ -19,9 +19,10 @@ function fetchInfo(link, successCallback) {
 }
 
 function startEndButtons() {
-    stationButtons = document.getElementsByClassName('stationCommentButton')
+    let stationButtons = document.getElementsByClassName('stationCommentButton')
     for (let startStation of stationButtons) {
         startStation.innerHTML = 'Laat comments zien'
+        startStation.classList.add('startStationButton')
         startStation.addEventListener("click", (event) => {
             let buttonId = event.target.id
             fetchInfo(stationPhp, (data) => createModal(data, buttonId))

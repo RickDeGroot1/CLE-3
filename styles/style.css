@@ -64,6 +64,15 @@ nav a:hover{
     background-color: #abc4b0;
 }
 
+.startStationButton {
+    background-color: #be9fd1;
+    padding: 2.5vh 0 2.5vh 0;
+    border-radius: 25px;
+    width: 40%;
+    font-size: 1rem;
+    margin-top:2vh;
+}
+
 /*HOME STATION FORM*/
 .form-flex {
     margin: 3vh 0;
