@@ -46,18 +46,17 @@ mysqli_close($db);
 </header>
 
 <main>
-    <h2>Stations</h2>
-    <a href="add-station.php">Voeg nieuwe station toe</a>
-    <table>
-        <thead>
+    <h2 id="admin-title">Stations</h2>
+    <a href="add-station.php">
+        <button id="add-station">Voeg nieuwe station toe</button></a>
+    <table id="admin-list">
         <tr>
             <th>#</th>
             <th>Station</th>
             <th>Lift</th>
             <th>Escalator</th>
+            <th>Delete</th>
         </tr>
-        </thead>
-        <tbody>
         <?php foreach ($stations as $index => $station) { ?>
             <tr>
                 <td><?= $index + 1 ?></td>
@@ -65,11 +64,10 @@ mysqli_close($db);
                 <td><?= $station['lift'] ?></td>
                 <td><?= $station['escalator'] ?></td>
                 <td>
-                    <a href="stations-delete.php?id=<?= $station['id']; ?>">delete</a>
+                    <a href="stations-delete.php?id=<?= $station['id']; ?>">Delete</a>
                 </td>
             </tr>
         <?php } ?>
-        </tbody>
     </table>
 </main>
 </body>

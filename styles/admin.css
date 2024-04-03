@@ -6,3 +6,30 @@
     font-size: 1rem;
     margin:2vh 0;
 }
+
+#admin-title, #add-station {
+    margin: 2vh 0 2vh 20vw;
+}
+
+#add-station{
+    padding: 2vh 2.5vw;
+    background-color: #be9fd1;
+    border-radius: 25px;
+}
+
+#admin-list{
+    border-collapse: collapse;
+    width: 60%;
+    margin: auto;
+    text-align: left;
+}
+
+#admin-list td, #admin-list th {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+#admin-list th  {
+    background-color: #ABC4B0;
+}
+

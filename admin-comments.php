@@ -45,18 +45,16 @@ mysqli_close($db);
 </header>
 
 <main>
-    <h2>Comments</h2>
-    <table>
-        <thead>
+    <h2 id="admin-title">Comments</h2>
+    <table id="admin-list">
         <tr>
             <th>#</th>
             <th>Station-id</th>
             <th>Comment</th>
             <th>Lift</th>
             <th>Escalator</th>
+            <th>Delete</th>
         </tr>
-        </thead>
-        <tbody>
         <?php foreach ($comments as $index => $comment) { ?>
             <tr>
                 <td><?= $index + 1 ?></td>
@@ -65,11 +63,10 @@ mysqli_close($db);
                 <td><?= $comment['lift'] ?></td>
                 <td><?= $comment['escalator'] ?></td>
                 <td>
-                    <a href="comments-delete.php?id=<?= $comment['id']; ?>">delete</a>
+                    <a href="comments-delete.php?id=<?= $comment['id']; ?>">Delete</a>
                 </td>
             </tr>
         <?php } ?>
-        </tbody>
     </table>
 </main>
 </body>
