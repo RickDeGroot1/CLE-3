@@ -1,6 +1,8 @@
 <?php
 /** @var mysqli $db */
 require_once 'includes/dbconnect.php';
+//require_once 'includes/getStations.php';
+//header('Content-Type: text/html ');
 
 //code
 $query = "SELECT * FROM stations";
@@ -10,7 +12,7 @@ or die('Error '.mysqli_error($db).' with query '.$query);
 
 $stations = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-
+"var databaseInfo = " . json_encode($result) . ";";
 
 $startStation = '';
 $targetStation = '';
@@ -63,6 +65,7 @@ mysqli_close($db);
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/style.css">
+    <script src="js/main.js"></script>
     <title>Reiswijs</title>
 </head>
 <body>
@@ -129,23 +132,27 @@ mysqli_close($db);
         <div class="overview-block">
             <h2>Faciliteiten:</h2>
             <?php if($startStation !== '' && $targetStation !== ''): ?>
-            <div>
+            <div id="startStationDiv">
                 <h3>Beginbestemming: <?= $startStation ?? '' ?></h3>
                 <ul id="ul-begin">
                     <li>Aantal liften: <?= $startStationLifts ?? '' ?></li>
                     <li>Aantal roltrappen: <?= $startStationEscalators ?? '' ?></li>
                 </ul>
+                <button class="stationCommentButton" id=<?=$_POST['beginbestemming']?>></button>
             </div>
-            <div>
-                <h3>Eindbestemming: <?= $targetStation ?? '' ?></h3>
+            <div id="targetStationDiv">
+                <h3 id="targetStationTitle">Eindbestemming: <?= $targetStation ?? '' ?></h3>
                 <ul id="ul-eind">
                     <li>Aantal liften: <?= $targetStationLifts ?? '' ?>
                     <li>Aantal roltrappen: <?= $targetStationEscalators ?? '' ?></li>
                 </ul>
+                <button class="stationCommentButton" id=<?=$_POST['eindbestemming']?>></button>
             </div>
             <?php else: ?>
-                <?= $errors['sameStation'] ?? ''?>
-                <?= $errors['noStation'] ?? '' ?>
+                <p>
+                    <?= $errors['sameStation'] ?? ''?>
+                    <?= $errors['noStation'] ?? '' ?>
+                </p>
             <?php endif ?>
         </div>
     </section>
