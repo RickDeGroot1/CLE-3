@@ -91,7 +91,6 @@ mysqli_close($db);
         <div class="overview-block">
             <h2>Locaties:</h2>
 
-
             <form action="" method="post">
                 <div class="form-flex">
                     <label for="beginbestemming"><b>Van:</b></label><br>

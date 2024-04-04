@@ -78,14 +78,6 @@ nav a:hover {
     margin: 3vh 0;
 }
 
-#form-submit {
-
-.lofa{
-    background-color: #abc4b0;
-    display: flex;
-    flex-direction: column;
-}
-
 input[type=submit], #form-submit{
     background-color: #be9fd1;
     padding: 2.5vh 0 2.5vh 0;
