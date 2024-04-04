@@ -15,7 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Voeg de comment toe aan de database
     $sql = "INSERT INTO comments (station_id, comment, lift, escalator) VALUES ('$station_id', '$comment', '$lift', '$escalator')";
     if ($db->query($sql) === TRUE) {
-        echo "Comment is succesvol toegevoegd";
+        // Redirect to comment-confirmation.php
+        header("Location: comment-confirmation.php");
+        exit(); // Ensure script stops execution after redirection
     } else {
         echo "Error: " . $sql . "<br>" . $db->error;
     }
@@ -36,7 +38,6 @@ mysqli_close($db);
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/comment.css">
     <script src="js/comment.js"></script>
     <title>Reiswijs comments</title>
 </head>

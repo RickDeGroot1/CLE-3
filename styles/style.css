@@ -9,53 +9,53 @@ body {
     margin: 0;
 }
 
-h1{
-    font-size:2rem;
+h1 {
+    font-size: 2rem;
 }
 
-/*NAVIGATIE*/
-nav{
+/*NAVIGATION*/
+nav {
     background-color: #324938;
-    color:white;
-    margin:0;
-    padding:0 5vw;
-    display:flex;
+    color: white;
+    margin: 0;
+    padding: 0 5vw;
+    display: flex;
     justify-content: space-between;
-    align-items:center;
+    align-items: center;
 }
 
-#nav-link{
-    gap:4vw;
+#nav-link {
+    gap: 4vw;
     display: flex;
 }
 
-nav a{
+nav a {
     color: white;
     padding: 3vh 1vw;
     border-radius: 15px;
     transition: ease-in 0.3s;
-    font-size:1.2rem;
+    font-size: 1.2rem;
 }
 
-nav a:hover{
-    color:black;
+nav a:hover {
+    color: black;
     background-color: lightgray;
 }
 
 #logo-image {
     width: 125px;
-    padding: 5px
+    padding: 5px;
 }
 
 /*HOME OVERVIEWS*/
 #home-overview {
-    display:flex;
+    display: flex;
     justify-content: center;
-    gap:6vw;
-    flex:1 0 0;
+    gap: 6vw;
+    flex: 1 0 0;
 }
 
-.overview-block{
+.overview-block {
     margin-top: 7vh;
     padding: 0 3vh;
     border: 2px solid #324938;
@@ -78,6 +78,8 @@ nav a:hover{
     margin: 3vh 0;
 }
 
+#form-submit {
+
 .lofa{
     background-color: #abc4b0;
     display: flex;
@@ -88,13 +90,14 @@ input[type=submit], #form-submit{
     background-color: #be9fd1;
     padding: 2.5vh 0 2.5vh 0;
     border-radius: 25px;
-    width:100%;
+    width: 100%;
     font-size: 1rem;
-    margin-top:2vh;
+    margin-top: 2vh;
 }
 
-#beginbestemming, #eindbestemming{
-    font-size:1.2rem;
+#beginbestemming,
+#eindbestemming {
+    font-size: 1.2rem;
 }
 
 #dropdown {
@@ -104,7 +107,7 @@ input[type=submit], #form-submit{
     margin-top: 1vh;
 }
 
-/*COMMENT PAGINA*/
+/*COMMENT PAGE*/
 #comment-form {
     margin: 0 20%;
 }
@@ -130,6 +133,37 @@ input[type=submit], #form-submit{
 
 .error {
     color: red;
+}
+
+
+.confirmation-container {
+    text-align: center;
+    margin-top: 10vh;
+}
+
+.confirmation-message {
+    font-size: 2.5rem;
+    font-weight: bold;
+
+}
+
+.additional-message {
+    font-size: 1.2rem;
+    margin-top: 3vh;
+}
+
+.back-to-home {
+    margin-top: 3vh;
+    text-align: center;
+}
+
+.back-to-home {
+    background-color: #be9fd1;
+    padding: 2.5vh 0 2.5vh 0;
+    border-radius: 25px;
+    width: 30%;
+    font-size: 1rem;
+    margin-top: 2vh;
 }
 
 .modal {
