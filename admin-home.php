@@ -28,7 +28,7 @@
         </div>
         <div id="nav-link">
             <div>
-                <a href="index.php">Uitloggen</a>
+                <a href="logout.php">Uitloggen</a>
             </div>
         </div>
     </nav>

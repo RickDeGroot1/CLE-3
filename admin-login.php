@@ -1,3 +1,39 @@
+<?php
+session_start();
+
+/** @var mysqli $db */
+require_once 'includes/dbconnect.php';
+
+$errors = array();
+
+if (isset($_POST['submit'])){
+
+    $username = mysqli_real_escape_string($db, $_POST['username']);
+    $password = mysqli_real_escape_string($db, $_POST['password']);
+
+    if ($username == '' || $username = ' '){
+        print_r($errors);
+    }
+
+    if ($password == '' || $password = ' '){
+        print_r($errors);
+    }
+
+    else{
+        $query = "SELECT username, password
+        FROM users WHERE username=".$username;
+
+        $result = mysqli_query($db,$query)
+        or die('Error'. mysqli_error($db). 'with query'. $query);
+
+        $SESSION['username'] = $_POST['username'];
+
+        header('location: secure.php');
+        exit;
+    }
+}
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -29,21 +65,20 @@
 <main>
     <div class="login-container">
         <h1>Inloggen bij Reiswijs</h1>
-        <form id="login-form" action="#" method="post">
+        <form id="login-form" action="" method="post">
             <div class="login-input">
                 <label for="username">Gebruikersnaam:</label>
-                <input type="text" id="username" name="username" placeholder="Vul hier uw gebruikersnaam in">
+                <input type="text" id="username" name="username" placeholder="Vul hier uw gebruikersnaam in" required>
             </div>
             <div class="login-input">
                 <label for="password">Wachtwoord:</label>
-                <input type="password" id="password" name="password" placeholder="Vul hier uw wachtwoord in">
+                <input type="password" id="password" name="password" placeholder="Vul hier uw wachtwoord in" required>
             </div>
             <div class="login-submit">
-                <input type="submit" value="Inloggen">
+                <input type="submit" name ="submit" value="Inloggen">
             </div>
         </form>
     </div>
 </main>
-
 </body>
 </html>
