@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 27 mrt 2024 om 11:51
+-- Gegenereerd op: 04 apr 2024 om 10:12
 -- Serverversie: 10.4.28-MariaDB
 -- PHP-versie: 8.2.4
 
@@ -32,15 +32,18 @@ CREATE TABLE `comments` (
   `station_id` int(10) UNSIGNED NOT NULL,
   `comment` varchar(255) DEFAULT NULL,
   `lift` int(10) UNSIGNED DEFAULT NULL,
-  `escalator` int(10) UNSIGNED DEFAULT NULL
+  `escalator` int(10) UNSIGNED DEFAULT NULL,
+  `datetime` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `comments`
 --
 
-INSERT INTO `comments` (`id`, `station_id`, `comment`, `lift`, `escalator`) VALUES
-(4, 1, 'Wow een lift is kapot gegaan. Ik zat er midden in en nu... nu is het kapot.', 1, 1);
+INSERT INTO `comments` (`id`, `station_id`, `comment`, `lift`, `escalator`, `datetime`) VALUES
+(4, 1, 'Wow een lift is kapot gegaan. Ik zat er midden in en nu... nu is het kapot.', 1, 1, '2024-04-04 00:00:00'),
+(5, 2, 'Er is een lift in de lijn van Slinge en de Akkers kapot gegaan', 1, 0, '2024-04-04 00:00:00'),
+(6, 2, 'Er is nog een lift kapot gegaan! Heb alleen geen idee welke.', 1, 0, '2024-04-04 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -61,7 +64,8 @@ CREATE TABLE `stations` (
 
 INSERT INTO `stations` (`id`, `station`, `lift`, `escalator`) VALUES
 (1, 'Blaak', 2, 4),
-(2, 'Beurs', 3, 2);
+(2, 'Beurs', 3, 2),
+(3, 'Hoogvliet', 2, 4);
 
 -- --------------------------------------------------------
 
@@ -107,7 +111,7 @@ ALTER TABLE `stations`
 -- AUTO_INCREMENT voor een tabel `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT voor een tabel `stations`

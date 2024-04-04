@@ -47,11 +47,11 @@ function createModal(data, buttonId) {
     if (stationData) {
         stationName.innerHTML = stationData['station']
         comments.forEach(commentData => {
-            if (commentData.station_id === buttonId) {
+            if (commentData.station_id === buttonId && commentData.comment != null) {
                 let stationComment = document.createElement('li')
                 stationComment.classList.add('stationComments')
                 stationComment.id = 'stationComments'
-                stationComment.innerHTML = commentData.comment
+                stationComment.innerHTML = `Om: ${commentData.datetime} - ${commentData.comment}`
                 stationCommentsBox.appendChild(stationComment)
             }
         });
