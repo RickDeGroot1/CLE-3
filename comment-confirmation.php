@@ -29,8 +29,10 @@
     <div class="confirmation-container">
         <p class="confirmation-message">Bedankt voor uw melding</p>
         <p class="additional-message">Uw meldingen helpen ReisWijs om de reiservaring voor iedereen te verbeteren!</p>
-        <div class="back-to-home">
-            <a href="index.php">Terug naar de homepagina</a>
+        <div>
+            <a href="index.php">
+                <button class="back-to-home"> Terug naar de homepagina</button>
+            </a>
         </div>
     </div>
 </main>
