@@ -50,12 +50,12 @@
 
         <div class="overview-block">
 
-            <h2>Comments</h2>
+            <h2>Meldingen</h2>
 
-            <p>Hier komen de laatste comments</p>
+            <p>Hier komen de laatste meldingen</p>
 
             <a href="admin-comments.php">
-                <button class="admin-button">Meer comments</button>
+                <button class="admin-button">Meer meldingen</button>
             </a>
 
         </div>

@@ -25,7 +25,7 @@ mysqli_close($db);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/admin.css">
-    <title>Comment overzicht</title>
+    <title>Melding overzicht</title>
 </head>
 <body>
 <header>
@@ -45,15 +45,15 @@ mysqli_close($db);
 </header>
 
 <main>
-    <h2 id="admin-title">Comments</h2>
+    <h2 id="admin-title">Meldingen</h2>
     <table id="admin-list">
         <tr>
             <th>#</th>
             <th>Station-id</th>
-            <th>Comment</th>
-            <th>Lift</th>
-            <th>Escalator</th>
-            <th>Delete</th>
+            <th>Opmerking</th>
+            <th>Lift(en)</th>
+            <th>Roltrap(pen)</th>
+            <th>Verwijderen</th>
         </tr>
         <?php foreach ($comments as $index => $comment) { ?>
             <tr>
@@ -63,7 +63,7 @@ mysqli_close($db);
                 <td><?= $comment['lift'] ?></td>
                 <td><?= $comment['escalator'] ?></td>
                 <td>
-                    <a href="comments-delete.php?id=<?= $comment['id']; ?>">Delete</a>
+                    <a href="comments-delete.php?id=<?= $comment['id']; ?>">Verwijderen</a>
                 </td>
             </tr>
         <?php } ?>

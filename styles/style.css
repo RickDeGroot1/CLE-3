@@ -162,8 +162,3 @@ input[type=submit], #form-submit{
     border-radius: 10px;
     font-size: 1.2rem;
 }
-
-.stationCommenBox {
-    display: flex;
-    flex-direction: column;
-}

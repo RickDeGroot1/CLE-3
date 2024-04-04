@@ -81,6 +81,9 @@ mysqli_close($db);
             <div>
                 <a href="comment.php">Melding maken</a>
             </div>
+            <div>
+                <a href="admin-login.php">Admin login</a>
+            </div>
         </div>
     </nav>
 </header>

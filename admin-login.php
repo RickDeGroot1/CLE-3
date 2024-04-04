@@ -28,18 +28,18 @@
 
 <main>
     <div class="login-container">
-        <h1>Login to Reiswijs</h1>
+        <h1>Inloggen bij Reiswijs</h1>
         <form id="login-form" action="#" method="post">
             <div class="login-input">
-                <label for="username">Username:</label>
+                <label for="username">Gebruikersnaam:</label>
                 <input type="text" id="username" name="username" placeholder="Vul hier uw gebruikersnaam in">
             </div>
             <div class="login-input">
-                <label for="password">Password:</label>
+                <label for="password">Wachtwoord:</label>
                 <input type="password" id="password" name="password" placeholder="Vul hier uw wachtwoord in">
             </div>
             <div class="login-submit">
-                <input type="submit" value="Login">
+                <input type="submit" value="Inloggen">
             </div>
         </form>
     </div>

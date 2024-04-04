@@ -53,9 +53,9 @@ mysqli_close($db);
         <tr>
             <th>#</th>
             <th>Station</th>
-            <th>Lift</th>
-            <th>Escalator</th>
-            <th>Delete</th>
+            <th>Lift(en)</th>
+            <th>Roltrap(pen)</th>
+            <th>Verwijderen</th>
         </tr>
         <?php foreach ($stations as $index => $station) { ?>
             <tr>
@@ -64,7 +64,7 @@ mysqli_close($db);
                 <td><?= $station['lift'] ?></td>
                 <td><?= $station['escalator'] ?></td>
                 <td>
-                    <a href="stations-delete.php?id=<?= $station['id']; ?>">Delete</a>
+                    <a href="stations-delete.php?id=<?= $station['id']; ?>">Verwijderen</a>
                 </td>
             </tr>
         <?php } ?>
