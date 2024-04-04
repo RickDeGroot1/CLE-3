@@ -5,7 +5,7 @@ $login = $_SESSION['login'];
 
 
 if ($login){
-    header('location: index.php');
+    header('location: admin-home.php');
     exit;
 }
 ?>
