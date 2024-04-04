@@ -33,3 +33,52 @@
     background-color: #ABC4B0;
 }
 
+/* Login Page */
+.login-container {
+    margin: 10vh auto;
+    width: 60%;
+    background-color: #abc4b0;
+    border: 2px solid #324938;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.login-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-input {
+    margin-bottom: 15px;
+}
+
+.login-input label {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.login-input input[type="text"],
+.login-input input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+.login-submit input[type="submit"] {
+    background-color: #be9fd1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-submit input[type="submit"]:hover {
+    background-color: #9b7fb5;
+}
+
