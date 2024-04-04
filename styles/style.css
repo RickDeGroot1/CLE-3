@@ -64,12 +64,29 @@ nav a:hover {
     background-color: #abc4b0;
 }
 
+.startStationButton {
+    background-color: #be9fd1;
+    padding: 2.5vh 0 2.5vh 0;
+    border-radius: 25px;
+    width: 40%;
+    font-size: 1rem;
+    margin-top:2vh;
+}
+
 /*HOME STATION FORM*/
 .form-flex {
     margin: 3vh 0;
 }
 
 #form-submit {
+
+.lofa{
+    background-color: #abc4b0;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type=submit], #form-submit{
     background-color: #be9fd1;
     padding: 2.5vh 0 2.5vh 0;
     border-radius: 25px;
@@ -103,7 +120,7 @@ nav a:hover {
     font-size: 1.1rem;
 }
 
-#dropdown {
+.dropdown {
     width: 100%;
     height: 5vh;
     border-radius: 25px;
@@ -118,7 +135,7 @@ nav a:hover {
     color: red;
 }
 
-/* Additional styles for confirmation page */
+
 .confirmation-container {
     text-align: center;
     margin-top: 10vh;
@@ -149,3 +166,12 @@ nav a:hover {
     margin-top: 2vh;
 }
 
+.modal {
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+
+.stationCommenBox {
+    display: flex;
+    flex-direction: column;
+}
