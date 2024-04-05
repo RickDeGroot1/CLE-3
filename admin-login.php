@@ -1,35 +1,42 @@
 <?php
-session_start();
-
 /** @var mysqli $db */
 require_once 'includes/dbconnect.php';
 
-$errors = array();
+$errors = [];
 
 if (isset($_POST['submit'])){
 
     $username = mysqli_real_escape_string($db, $_POST['username']);
     $password = mysqli_real_escape_string($db, $_POST['password']);
 
-    if ($username == '' || $username = ' '){
+    if ($username == '' || $username == ' '){
         print_r($errors);
     }
 
-    if ($password == '' || $password = ' '){
+    if ($password == '' || $password == ' '){
         print_r($errors);
     }
 
     else{
         $query = "SELECT username, password
-        FROM users WHERE username=".$username;
+        FROM users WHERE username='$username'";
 
         $result = mysqli_query($db,$query)
         or die('Error'. mysqli_error($db). 'with query'. $query);
 
-        $SESSION['username'] = $_POST['username'];
-
-        header('location: secure.php');
-        exit;
+        if (mysqli_num_rows($result) == 1) {
+            $row = mysqli_fetch_assoc($result);
+            if ($row['password'] == $password) {
+                session_start();
+                $_SESSION['username'] = $username;
+                header('location: admin-home.php');
+                exit;
+            } else {
+                $errors['password'] = "Incorrect password.";
+            }
+        } else {
+            $errors['username'] = "User not found.";
+        }
     }
 }
 ?>
@@ -69,10 +76,16 @@ if (isset($_POST['submit'])){
             <div class="login-input">
                 <label for="username">Gebruikersnaam:</label>
                 <input type="text" id="username" name="username" placeholder="Vul hier uw gebruikersnaam in" required>
+                <p>
+                    <?= isset($errors['username']) ? $errors['username'] : ''?>
+                </p>
             </div>
             <div class="login-input">
                 <label for="password">Wachtwoord:</label>
                 <input type="password" id="password" name="password" placeholder="Vul hier uw wachtwoord in" required>
+                <p>
+                    <?= isset($errors['password']) ? $errors['password'] : ''?>
+                </>
             </div>
             <div class="login-submit">
                 <input type="submit" name ="submit" value="Inloggen">
