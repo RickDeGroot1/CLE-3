@@ -3,6 +3,8 @@
 /** @var mysqli $db */
 require_once 'includes/dbconnect.php';
 
+require_once 'includes/secure.php';
+
 $query = 'SELECT * FROM stations';
 
 $result = mysqli_query($db, $query)
