@@ -37,20 +37,40 @@ mysqli_close($db);
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="styles/admin.css">
-    <title>Reiswijs</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Reiswijs verwijder station</title>
 </head>
+<body>
+<header>
+    <nav>
+        <div>
+            <img src="images/logo.PNG" alt="logo" id="logo-image">
+        </div>
+        <div id="nav-link">
+            <div>
+                <a href="index.php">Home</a>
+            </div>
+            <div>
+                <a href="comment.php">Melding maken</a>
+            </div>
+        </div>
+    </nav>
+</header>
 <body>
 <div>
     <section>
-        <div>
-            <h2>Weet je zeker dat je dit station wilt verwijderen?</h2>
+        <div class="confirmation-container">
+            <h1>Weet je zeker dat je dit station wilt verwijderen?</h1>
 
             <form action="" method="post">
-                <button type="submit" name="submit">Verwijder station</button>
+
+                <button class="back-to-home" type="submit" name="submit">Verwijder station</button>
+
             </form>
 
-            <a href="admin-stations.php">« Ga terug</a>
+            <a href="admin-home.php">
+                <button class="back-to-home"> Ga terug</button>
+            </a>
         </div>
     </section>
 </div>

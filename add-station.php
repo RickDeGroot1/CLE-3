@@ -24,6 +24,8 @@ if (isset($_POST['submit'])){
 }
 ?>
 
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -31,21 +33,52 @@ if (isset($_POST['submit'])){
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Reiswijs voeg station toe</title>
 </head>
 <body>
+<header>
+    <nav>
+        <div>
+            <img src="images/logo.PNG" alt="logo" id="logo-image">
+        </div>
+        <div id="nav-link">
+            <div>
+                <a href="index.php">Home</a>
+            </div>
+            <div>
+                <a href="comment.php">Melding maken</a>
+            </div>
+        </div>
+    </nav>
+</header>
 
-<form action="" method="post">
-    <label for="station">Station</label>
-    <input type="text" id="station" name="station">
 
-    <label for="lift">Lift</label>
-    <input type="number" id="lift" name="lift">
 
-    <label for="escalator">Roltrap</label>
-    <input type="number" id="escalator" name="escalator">
+<form id="comment-form" action="" method="post">
+    <h1>Voeg een station toe</h1>
 
-    <input name="submit" type="submit">
+    <div class="comment-section">
+        <label class="comment-label" for="station">Station</label>
+        <br>
+        <input type="text" id="station" name="station">
+    </div>
+
+    <div class="comment-section">
+        <label class="comment-label" for="lift">Lift</label>
+        <br>
+        <input type="number" id="lift" name="lift">
+    </div>
+
+    <div class="comment-section">
+        <label class="comment-label" for="escalator">Roltrap</label>
+        <br>
+        <input type="number" id="escalator" name="escalator">
+    </div>
+
+    <div class="comment-section">
+        <input name="submit" type="submit">
+    </div>
 </form>
 
 </body>
