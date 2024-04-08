@@ -33,7 +33,7 @@ require_once 'includes/secure.php';
 
             <h2>Stations</h2>
 
-            <p>Hier komen stations</p>
+            <p>Voeg toe en verwijder hier de stations</p>
 
             <a href="admin-stations.php">
                 <button class="admin-button">Meer stations</button>
@@ -45,7 +45,7 @@ require_once 'includes/secure.php';
 
             <h2>Meldingen</h2>
 
-            <p>Hier komen de laatste meldingen</p>
+            <p>Bekijk hier de meldingen en verwijder</p>
 
             <a href="admin-comments.php">
                 <button class="admin-button">Meer meldingen</button>
