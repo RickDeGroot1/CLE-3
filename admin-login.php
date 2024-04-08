@@ -30,7 +30,6 @@ if (isset($_POST['submit'])){
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_assoc($result);
             if ($row['password'] == $password) {
-//                session_start();
                 $_SESSION['loggedin'] = true;
                 $_SESSION['username'] = $username;
                 header('location: admin-home.php');
