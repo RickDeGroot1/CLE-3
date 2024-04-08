@@ -2,6 +2,9 @@
 /** @var mysqli $db */
 require_once 'includes/dbconnect.php';
 
+session_start();
+$_SESSION['loggedin'] = false;
+
 $errors = [];
 
 if (isset($_POST['submit'])){
@@ -27,7 +30,8 @@ if (isset($_POST['submit'])){
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_assoc($result);
             if ($row['password'] == $password) {
-                session_start();
+//                session_start();
+                $_SESSION['loggedin'] = true;
                 $_SESSION['username'] = $username;
                 header('location: admin-home.php');
                 exit;
