@@ -32,19 +32,9 @@ mysqli_close($db);
 </head>
 <body>
 <header>
-    <nav>
-        <div>
-            <img src="images/logo.PNG" alt="logo" id="logo-image">
-        </div>
-        <div id="nav-link">
-            <div>
-                <a href="admin-home.php">Home</a>
-            </div>
-            <div>
-                <a href="logout.php">Uitloggen</a>
-            </div>
-        </div>
-    </nav>
+    <?php
+    require_once 'includes/navbar.php';
+    ?>
 </header>
 
 <main>
