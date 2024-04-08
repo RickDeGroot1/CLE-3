@@ -18,12 +18,6 @@ if(isset($_SESSION['username'])) { ?>
                 <a href="add-station.php">Stations toevoegen</a>
             </div>
             <div>
-                <a href="admin-comments.php">Comments</a>
-            </div>
-            <div>
-                <a href="admin-stations.php">Stations</a>
-            </div>
-            <div>
                 <a href="logout.php">Uitloggen</a>
             </div>
         </div>

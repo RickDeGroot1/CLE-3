@@ -38,19 +38,9 @@ if (isset($_POST['submit'])){
 </head>
 <body>
 <header>
-    <nav>
-        <div>
-            <img src="images/logo.PNG" alt="logo" id="logo-image">
-        </div>
-        <div id="nav-link">
-            <div>
-                <a href="index.php">Home</a>
-            </div>
-            <div>
-                <a href="comment.php">Melding maken</a>
-            </div>
-        </div>
-    </nav>
+    <?php
+    require_once 'includes/navbar.php';
+    ?>
 </header>
 
 
@@ -61,19 +51,19 @@ if (isset($_POST['submit'])){
     <div class="comment-section">
         <label class="comment-label" for="station">Station</label>
         <br>
-        <input type="text" id="station" name="station">
+        <input type="text" id="dropdown" name="station">
     </div>
 
     <div class="comment-section">
         <label class="comment-label" for="lift">Lift</label>
         <br>
-        <input type="number" id="lift" name="lift">
+        <input type="number" id="dropdown" name="lift">
     </div>
 
     <div class="comment-section">
         <label class="comment-label" for="escalator">Roltrap</label>
         <br>
-        <input type="number" id="escalator" name="escalator">
+        <input type="number" id="dropdown" name="escalator">
     </div>
 
     <div class="comment-section">
