@@ -42,8 +42,8 @@ function createModal(data, buttonId) {
     let stationCommentsBox = document.createElement('section')
     stationCommentsBox.classList.add('stationCommenBox')
 
+    let stationData = stations.find(station => station.id == buttonId)
     let stationName = document.createElement('h3')
-    let stationData = stations[buttonId-1]
     if (stationData) {
         stationName.innerHTML = stationData['station']
         comments.forEach(commentData => {
@@ -54,16 +54,15 @@ function createModal(data, buttonId) {
                 stationComment.innerHTML = `Om: ${commentData.datetime} - ${commentData.comment}`
                 stationCommentsBox.appendChild(stationComment)
             }
-        });
+        })
         if (stationCommentsBox.childNodes.length === 0) {
             let noComments = document.createElement('li')
             noComments.innerHTML = 'Er zijn op het moment geen comments voor dit station!'
             stationCommentsBox.appendChild(noComments)
         }
     } else {
-        stationName.innerHTML = "Geen valide station, selecteer een valide station";
+        stationName.innerHTML = "Geen valide station, selecteer een valide station"
     }
-
     dialog.appendChild(stationName)
     dialog.appendChild(stationCommentsBox)
 
@@ -71,6 +70,8 @@ function createModal(data, buttonId) {
 
     dialog.showModal()
 }
+
+
 
 function ajaxRequestErrorHandler(data) {
     console.error(data)
