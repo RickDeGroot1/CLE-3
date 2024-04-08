@@ -35,10 +35,10 @@ if (isset($_POST['submit'])){
                 header('location: admin-home.php');
                 exit;
             } else {
-                $errors['password'] = "Incorrect password.";
+                $errors['password'] = "Verkeerd wachtwoord";
             }
         } else {
-            $errors['username'] = "User not found.";
+            $errors['username'] = "Gebruiker niet gevonden";
         }
     }
 }
