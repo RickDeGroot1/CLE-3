@@ -57,19 +57,9 @@ if (isset($_POST['submit'])){
 </head>
 <body>
 <header>
-    <nav>
-        <div>
-            <img src="images/logo.PNG" alt="logo" id="logo-image">
-        </div>
-        <div id="nav-link">
-            <div>
-                <a href="index.php">Home</a>
-            </div>
-            <div>
-                <a href="comment.php">Melding maken</a>
-            </div>
-        </div>
-    </nav>
+    <?php
+    require_once 'includes/navbar.php';
+    ?>
 </header>
 
 <main>
